@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --font-s: 18px;
+  --font-m: 24px;
+  --font-l: 32px;
+
+  --oklch-red: oklch(85% 0.37 40);
+  --oklch-red-0: oklch(85% 0.37 40 / 0%);
+  --oklch-blue: oklch(50% 0.37 265);
+  --oklch-blue-0: oklch(50% 0.37 265 / 0%);
+  --oklch-green: oklch(100% 0.37 145);
+  --oklch-green-0: oklch(100% 0.37 145 / 0%);
+}
+
+header {
+  padding: 30px 25px;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:last-of-type {
+      margin-top: 30px;
+    }
+  }
+  & h1 {
+    font-size: var(--font-l);
+  }
+  & h2 {
+    text-align: end;
+    font-size: var(--font-l);
+  }
+  & svg {
+    animation: rotateFlower linear 5s infinite;
+  }
+  & svg path {
+    animation: colorFlower ease-in-out 5s infinite alternate;
+  }
+}
+
+@keyframes rotateFlower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes colorFlower {
+  from {
+    fill: oklch(100% 0.37 0);
+  }
+  50% {
+    fill: oklch(100% 0.37 145);
+  }
+  to {
+    fill: oklch(100% 0.37 360);
+  }
+}
+
+#pwaInstall {
+  transition: 0.2s;
+  background: black;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  padding: 10px;
+  border: none;
+  &::after {
+    content: "add to home";
+  }
+  &.scroll {
+    position: fixed;
+    left: 25px;
+    top: 25px;
+    transition: 0.2s;
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.hero-color {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  & .red {
+    background: linear-gradient(185deg, var(--oklch-red) 0%, var(--oklch-red-0) 100%);
+  }
+  & .blue {
+    background: linear-gradient(185deg, var(--oklch-blue) 0%, var(--oklch-blue-0) 100%);
+  }
+  & .green {
+    background: linear-gradient(185deg, var(--oklch-green) 0%, var(--oklch-green-0) 100%);
+  }
+  & div {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.redirections {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-inline: 25px;
+  height: 15vh;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+  border-radius: 50px;
+  padding: 10px;
+  text-decoration: none;
+  font-size: var(--font-s);
+}
+
+color-creator {
+  padding-inline: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.color-result {
+  width: 200px;
+  height: 200px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oklch maker</title>
+    <script src="./assets/js/main.js" defer></script>
+    <script src="./assets/js/pwa.js" defer></script>
+    <script src="./assets/js/color-creator.js" defer></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="manifest" href="/oklch.webmanifest" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>make your color <br />more vibrant</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <path
+            d="M38.1699 33.0922C43.7568 35.2072 51.2769 34.8217 56.0649 32.1748L60 29.9998L56.0649 27.8248C51.2769 25.1781 43.7571 24.7927 38.1699 26.9073L33.9801 28.4933C33.954 28.4089 33.9225 28.3274 33.8916 28.2453L37.9638 26.4095C43.41 23.9542 48.4545 18.3644 49.9689 13.1071L51.2133 8.7866L46.8927 10.031C41.6355 11.5452 36.0456 16.5899 33.5901 22.0359L31.8171 25.9691C31.7352 25.9294 31.6533 25.8899 31.5687 25.8554L33.0924 21.8298C35.2071 16.2429 34.8216 8.72297 32.175 3.93487L30 0L27.8249 3.93499C25.1782 8.72312 24.7928 16.2429 26.9075 21.83L28.4312 25.8556C28.3465 25.89 28.2646 25.9295 28.1828 25.9692L26.4096 22.0361C23.9544 16.5901 18.3645 11.5453 13.1072 10.0311L8.78664 8.78675L10.031 13.1073C11.5453 18.3644 16.59 23.9544 22.0361 26.4096L26.1082 28.2455C26.0774 28.3275 26.0457 28.409 26.0199 28.4934L21.83 26.9075C16.243 24.7927 8.72301 25.1782 3.93489 27.8249L0 29.9998L3.93501 32.1748C8.72316 34.8217 16.243 35.2072 21.8301 33.0922L26.2158 31.4323C26.2504 31.5079 26.2852 31.5838 26.3241 31.657L22.0362 33.5902C16.5902 36.0454 11.5454 41.6353 10.0312 46.8925L8.78679 51.213L13.1074 49.9686C18.3645 48.4546 23.9545 43.4098 26.4098 37.9639L28.3997 33.55C28.4732 33.5806 28.5495 33.6058 28.6252 33.6325L26.9076 38.17C24.7928 43.7569 25.1784 51.2769 27.8251 56.0649L30 60L32.1753 56.0649C34.8219 51.2769 35.2074 43.7572 33.0927 38.17L31.3749 33.6322C31.4505 33.6058 31.527 33.5806 31.6005 33.5497L33.5904 37.9636C36.0456 43.4098 41.6355 48.4543 46.8927 49.9686L51.2133 51.213L49.9689 46.8925C48.4548 41.6353 43.41 36.0454 37.9641 33.5899L33.6759 31.657C33.7149 31.5838 33.7497 31.5079 33.7842 31.432L38.1699 33.0922Z"
+            fill="black"
+          />
+        </svg>
+      </div>
+      <div>
+        <span>
+          <button hidden id="pwaInstall">
+            <img src="/assets/images/add-home.svg" alt="">
+          </button>
+        </span>
+        <h2>with Oklch()</h2>
+      </div>
+    </header>
+
+    <section class="hero-color">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </section>
+
+    <section class="redirections">
+      <a href="#" class="btn">learn about</a>
+      <a href="#" class="btn">create oklch</a>
+    </section>
+
+    <color-creator></color-creator>
+
+</html>
