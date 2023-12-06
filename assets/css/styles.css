@@ -143,6 +143,9 @@ header {
   text-decoration: none;
   font-size: var(--font-s);
 }
+button.btn {
+  width: fit-content;
+}
 
 #oklch-explication {
   padding-inline: 25px;
