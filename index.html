@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+  <head> 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,10 +39,29 @@
     </section>
 
     <section class="redirections">
-      <a href="#" class="btn">learn about</a>
-      <a href="#" class="btn">create oklch</a>
+      <a href="#oklch-explication" class="btn">learn about</a>
+      <a href="#color-picker" class="btn">create oklch</a>
     </section>
 
-    <color-creator></color-creator>
+    <section id="oklch-explication">
+      <h2>learn more about the <br>oklch color</h2>
+      <br>
+      <p>What means OKLCH ? It's simply for OK, Lightness Chroma Hue</p>
+      <br>
+      <p>With oklch you can do more colors than a rgb format, it was supporting mostly by Apple products but it's also a simply way to do colors, more accessible.</p>
+      <br>
+      <p>First, you can ask the Lightness of the color with a value between 0% and 100%</p>
+      <p>Secondly, you can change the Chroma with a value between 0 and 0.37</p>
+      <p>And finally, you change the Hue of the color with a value between 0 and 360</p>
+      <p>Evidemment tu peux aussi changer la valeur Alpha pour changer la transparence de ta couleur</p>
+    </section>
+
+    <section id="color-picker">
+      <h2>create your own <br>oklch color</h2>
+      <p>oklch(Lightness Chroma Hue / Alpha)</p>
+      <br>
+      <color-creator></color-creator>
+    </section>
+    
 
 </html>
