@@ -3,7 +3,7 @@ class ColorCreator extends HTMLElement {
     this.innerHTML = `
       <div class="color-result" style="background-color: oklch(50% 0.37 265 / 1);"></div>
       <div class="color-input">
-        <input type="text" value="oklch(50% 0.37 265 / 1)">
+        <input type="text" value="oklch(50% 0.37 265 / 1)" readonly>
         <span class="color-copy">Copy</span>
       </div>
       <div class="color-ranges">
