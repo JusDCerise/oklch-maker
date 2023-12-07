@@ -1,3 +1,4 @@
+/* INITIALISATION DU STYLE */
 @font-face {
   font-family: "Helvetica";
   src: url("../fonts/Helvetica.woff") format("woff");
@@ -34,7 +35,9 @@ h1 {
 p {
   font-size: var(--font-s);
 }
+/* INITIALISATION DU STYLE */
 
+/* HEADER ET ANIMATION FLEUR */
 header {
   padding: 30px 25px;
   & > div {
@@ -59,6 +62,7 @@ header {
   }
 }
 
+/* ANIMATION DE LA FLEUR */
 @keyframes rotateFlower {
   from {
     transform: rotate(0deg);
@@ -67,7 +71,6 @@ header {
     transform: rotate(360deg);
   }
 }
-
 @keyframes colorFlower {
   from {
     fill: oklch(100% 0.37 0);
@@ -79,7 +82,10 @@ header {
     fill: oklch(100% 0.37 360);
   }
 }
+/* FIN ANIMATION DE LA FLEUR */
+/* FIN HEADER ET ANIMATION FLEUR */
 
+/* BOUTON PWA */
 #pwaInstall {
   transition: 0.2s;
   background: black;
@@ -95,8 +101,8 @@ header {
   }
   &.scroll {
     position: fixed;
-    left: 25px;
-    top: 25px;
+    left: 10px;
+    top: 10px;
     opacity: 0.5;
     transition: 0.2s;
     &::after {
@@ -104,6 +110,7 @@ header {
     }
   }
 }
+/* FIN BOUTON PWA */
 
 .hero-color {
   height: 60vh;
@@ -132,6 +139,7 @@ header {
   height: 15vh;
 }
 
+/* STYLE DES BUTTONS ET A */
 .btn {
   background-color: black;
   color: white;
@@ -142,19 +150,18 @@ header {
   padding: 10px;
   text-decoration: none;
   font-size: var(--font-s);
+  border: none;
 }
 button.btn {
   width: fit-content;
 }
+/* FIN STYLE DES BUTTONS ET A */
 
-#oklch-explication {
-  padding-inline: 25px;
-}
-
+/* COLOR PICKER SECTION */
 #color-picker {
-  padding: 50px 25px;
+  padding-inline: 25px;
   margin-top: 50px;
-  min-height: 100vh;
+  min-height: 100lvh;
   & h2 {
     margin-bottom: 20px;
   }
@@ -172,20 +179,21 @@ color-creator {
   width: 200px;
   height: 200px;
   border-radius: 20px;
+  box-shadow: 0px 0px 43px 15px rgba(0, 0, 0, 0.1);
 }
-
+/* COLOR INPUT */
 .color-input {
   position: relative;
   width: 100%;
   height: fit-content;
   margin-block: 25px;
-}
-.color-input input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: var(--font-s);
-  height: fit-content;
+  & input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: var(--font-s);
+    height: fit-content;
+  }
 }
 .color-copy {
   position: absolute;
@@ -202,47 +210,67 @@ color-creator {
   cursor: pointer;
   transition: 0.2s;
 }
-
+/* FIN COLOR INPUT */
+/* COLOR RANGES */
 .color-ranges {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-block: 10px;
+  & label {
+    font-weight: bold;
+    font-size: var(--font-s);
+  }
+  & input {
+    margin-top: 5px;
+    appearance: none;
+    height: 50px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: inset 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+  }
+  & input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 50px;
+    background: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  }
+  & input.lightness {
+    background: linear-gradient(90deg, oklch(0% 0.37 265) 0%, oklch(100% 0.37 265) 100%);
+  }
+  & input.chroma {
+    background: linear-gradient(90deg, oklch(50% 0 265) 0%, oklch(50% 0.37 265) 100%);
+  }
+  & input.hue {
+    background: linear-gradient(90deg, oklch(50% 0.37 0) 0%, oklch(50% 0.37 36) 10%, oklch(50% 0.37 72) 20%, oklch(50% 0.37 108) 30%, oklch(50% 0.37 144) 40%, oklch(50% 0.37 180) 50%, oklch(50% 0.37 216) 60%, oklch(50% 0.37 252) 70%, oklch(50% 0.37 288) 80%, oklch(50% 0.37 324) 90%, oklch(50% 0.37 360) 100%);
+  }
+  & input.alpha {
+    background: linear-gradient(90deg, oklch(50% 0.37 265 / 0) 0%, oklch(50% 0.37 265 / 1) 100%);
+  }
 }
-.color-ranges label {
-  font-weight: bold;
-  font-size: var(--font-s);
+/* FIN COLOR RANGES */
+/* FIN COLOR PICKER SECTION */
+
+/* OKLCH EXPLICATIONS */
+#oklch-explication {
+  padding: 50px 25px;
 }
-.color-ranges input {
-  margin-top: 5px;
-  appearance: none;
-  height: 50px;
+/* FIN OKLCH EXPLICATIONS */
+
+/* FOOTER */
+footer {
   width: 100%;
-  border-radius: 15px;
-  box-shadow: inset 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+  padding: 50px 25px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  & a {
+    color: white;
+  }
 }
-
-.color-ranges input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 50px;
-  background: white;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.1s ease-in-out;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
-}
-
-.color-ranges input.lightness {
-  background: linear-gradient(90deg, oklch(0% 0.37 265) 0%, oklch(100% 0.37 265) 100%);
-}
-.color-ranges input.chroma {
-  background: linear-gradient(90deg, oklch(50% 0 265) 0%, oklch(50% 0.37 265) 100%);
-}
-.color-ranges input.hue {
-  background: linear-gradient(90deg, oklch(50% 0.37 0) 0%, oklch(50% 0.37 36) 10%, oklch(50% 0.37 72) 20%, oklch(50% 0.37 108) 30%, oklch(50% 0.37 144) 40%, oklch(50% 0.37 180) 50%, oklch(50% 0.37 216) 60%, oklch(50% 0.37 252) 70%, oklch(50% 0.37 288) 80%, oklch(50% 0.37 324) 90%, oklch(50% 0.37 360) 100%);
-}
-.color-ranges input.alpha {
-  background: linear-gradient(90deg, oklch(50% 0.37 265 / 0) 0%, oklch(50% 0.37 265 / 1) 100%);
-}
+/* FIN FOOTER */

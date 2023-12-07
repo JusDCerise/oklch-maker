@@ -1,4 +1,5 @@
 class ColorCreator extends HTMLElement {
+  // Initaliser le composannt
   connectedCallback() {
     this.innerHTML = `
       <div class="color-result" style="background-color: oklch(50% 0.37 265 / 1);"></div>
@@ -31,13 +32,12 @@ class ColorCreator extends HTMLElement {
     this.removeEventListeners();
   }
 
+  // Appeler tous les composants et créer les évènements
   addEventListeners() {
+    const { lightnessInput, chromaInput, hueInput, alphaInput } = this.inputs();
+
     const colorInput = this.querySelector(".color-input input");
     const colorCopy = this.querySelector(".color-input span");
-    const lightnessInput = this.querySelector(".lightness");
-    const chromaInput = this.querySelector(".chroma");
-    const hueInput = this.querySelector(".hue");
-    const alphaInput = this.querySelector(".alpha");
     const randomizeButton = this.querySelector("#randomize");
 
     lightnessInput.addEventListener("input", this.updateColor.bind(this));
@@ -50,6 +50,7 @@ class ColorCreator extends HTMLElement {
     randomizeButton.addEventListener("click", this.randomizeValues.bind(this));
   }
 
+  // Mettre à jour la couleur en fonction des values des inputs range
   updateColor() {
     const { lightness, chroma, hue, alpha } = this.inputValues();
 
@@ -67,6 +68,7 @@ class ColorCreator extends HTMLElement {
     alphaInput.style.background = `linear-gradient(90deg, oklch(${lightness}% ${chroma} ${hue} / 0) 0%, oklch(${lightness}% ${chroma} ${hue} / 1) 100%)`;
   }
 
+  // Copier la couleur dans le presse-papier
   copyColor() {
     const { lightness, chroma, hue, alpha } = this.inputValues();
 
@@ -74,8 +76,6 @@ class ColorCreator extends HTMLElement {
     const colorCopyButton = this.querySelector(".color-copy");
 
     colorInput.select();
-    // colorInput.setSelectionRange(0, 99999);
-
     document.execCommand("copy");
 
     colorCopyButton.innerHTML = "Success !";
@@ -88,6 +88,7 @@ class ColorCreator extends HTMLElement {
     window.getSelection().removeAllRanges();
   }
 
+  // Créer une couleur aléatoire
   randomizeValues() {
     const { lightnessInput, chromaInput, hueInput, alphaInput } = this.inputs();
 
@@ -98,20 +99,11 @@ class ColorCreator extends HTMLElement {
 
     this.updateColor();
   }
-
   getRandomValue(min, max) {
     return Math.random() * (max - min) + parseFloat(min);
   }
 
-  inputValues() {
-    const lightness = this.querySelector(".lightness").value;
-    const chroma = this.querySelector(".chroma").value;
-    const hue = this.querySelector(".hue").value;
-    const alpha = this.querySelector(".alpha").value;
-
-    return { lightness, chroma, hue, alpha };
-  }
-
+  // Récupérer les inputs
   inputs() {
     const lightnessInput = this.querySelector(".lightness");
     const chromaInput = this.querySelector(".chroma");
@@ -119,6 +111,16 @@ class ColorCreator extends HTMLElement {
     const alphaInput = this.querySelector(".alpha");
 
     return { lightnessInput, chromaInput, hueInput, alphaInput };
+  }
+
+  // Récupérer la valeur des inputs
+  inputValues() {
+    const lightness = this.querySelector(".lightness").value;
+    const chroma = this.querySelector(".chroma").value;
+    const hue = this.querySelector(".hue").value;
+    const alpha = this.querySelector(".alpha").value;
+
+    return { lightness, chroma, hue, alpha };
   }
 }
 
