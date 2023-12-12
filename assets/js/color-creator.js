@@ -18,7 +18,7 @@ class ColorCreator extends HTMLElement {
       </div>
       <div class="color-ranges">
         <label>Hue</label>
-        <input type="range" class="hue" value="265" min="0" max="360" step="1">
+        <input type="range" class="hue" value="265" min="0" max="360" step="0.1">
       </div>
       <div class="color-ranges">
         <label>Alpha</label>
@@ -34,11 +34,7 @@ class ColorCreator extends HTMLElement {
 
   // Appeler tous les composants et créer les évènements
   addEventListeners() {
-    const { lightnessInput, chromaInput, hueInput, alphaInput } = this.inputs();
-
-    const colorInput = this.querySelector(".color-input input");
-    const colorCopy = this.querySelector(".color-input span");
-    const randomizeButton = this.querySelector("#randomize");
+    const { lightnessInput, chromaInput, hueInput, alphaInput, colorInput, colorCopy, randomizeButton } = this.inputs();
 
     lightnessInput.addEventListener("input", this.updateColor.bind(this));
     chromaInput.addEventListener("input", this.updateColor.bind(this));
@@ -54,10 +50,9 @@ class ColorCreator extends HTMLElement {
   updateColor() {
     const { lightness, chroma, hue, alpha } = this.inputValues();
 
-    const { lightnessInput, chromaInput, hueInput, alphaInput } = this.inputs();
+    const { lightnessInput, chromaInput, hueInput, alphaInput, colorInput } = this.inputs();
 
     const colorResult = this.querySelector(".color-result");
-    const colorInput = this.querySelector(".color-input input");
 
     colorResult.style.backgroundColor = `oklch(${lightness}% ${chroma} ${hue} / ${alpha})`;
     colorInput.value = `oklch(${lightness}% ${chroma} ${hue} / ${alpha})`;
@@ -78,10 +73,10 @@ class ColorCreator extends HTMLElement {
     colorInput.select();
     document.execCommand("copy");
 
-    colorCopyButton.innerHTML = "Success !";
+    colorCopyButton.innerHTML = "Réussi !";
     colorCopyButton.style.backgroundColor = `oklch(${lightness}% ${chroma} ${hue} / ${alpha})`;
     setTimeout(() => {
-      colorCopyButton.innerHTML = "Copy";
+      colorCopyButton.innerHTML = "Copier";
       colorCopyButton.style.backgroundColor = "black";
     }, 1000);
 
@@ -109,8 +104,11 @@ class ColorCreator extends HTMLElement {
     const chromaInput = this.querySelector(".chroma");
     const hueInput = this.querySelector(".hue");
     const alphaInput = this.querySelector(".alpha");
+    const colorInput = this.querySelector(".color-input input");
+    const colorCopy = this.querySelector(".color-input span");
+    const randomizeButton = this.querySelector("#randomize");
 
-    return { lightnessInput, chromaInput, hueInput, alphaInput };
+    return { lightnessInput, chromaInput, hueInput, alphaInput, colorInput, colorCopy, randomizeButton };
   }
 
   // Récupérer la valeur des inputs
