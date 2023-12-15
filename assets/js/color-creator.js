@@ -18,7 +18,7 @@ class ColorCreator extends HTMLElement {
       </div>
       <div class="color-ranges">
         <label>Hue</label>
-        <input type="range" class="hue" value="265" min="0" max="360" step="0.1">
+        <input type="range" class="hue" value="265" min="0" max="360" step="1">
       </div>
       <div class="color-ranges">
         <label>Alpha</label>
