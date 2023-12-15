@@ -130,6 +130,9 @@ header {
     height: 100%;
   }
 }
+.hero-color .green {
+  background: linear-gradient(185deg, oklch(100% 0.35 145 / 1) 0%, oklch(100% 0.35 145 / 0) 100%);
+}
 
 .redirections {
   display: flex;
