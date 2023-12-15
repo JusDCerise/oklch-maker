@@ -123,7 +123,7 @@ header {
     background: linear-gradient(185deg, oklch(50% 0.37 265 / 1) 0%, oklch(50% 0.37 265 / 0) 100%);
   }
   & .green {
-    background: linear-gradient(185deg, oklch(100% 0.37 145 / 1) 0%, oklch(100% 0.37 145 / 0) 100%);
+    background: linear-gradient(185deg, oklch(100% 0.35 145 / 1) 0%, oklch(100% 0.35 145 / 0) 100%);
   }
   & div {
     width: 100%;
